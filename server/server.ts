@@ -1,21 +1,28 @@
-const express = require('express');
-const mongoose = require('mongoose');
+// @ts-ignore
+const express = require('express')
+const mongoose = require('mongoose')
 
-mongoose.connect('mongodb://localhost:27017/Medicenter', { useNewUrlParser: true }, (error: any) => {
-    if (!error) {
-        console.log('Success');
-    }
-    else
-    {
-        console.log('Error connection to db');
-    }
-});
+const mongoUri = "mongodb+srv://Evgeniy:1234@cluster0-fixk3.azure.mongodb.net/app?retryWrites=true&w=majority"
+const PORT = 5000
 
-
-const app = express();
+const app = express()
 
 app.get('/', (req:any,res:any) => {
-    res.send('Home Page');
+    res.send('Home Page')
 });
 
-app.listen(5000, () => console.log('Server is running'));
+async function start() {
+    try {
+        await mongoose.connect(mongoUri, {
+            useNewUrlParser: true,
+            useUnifiedTopology: true,
+            useCreateIndex: true
+        })
+        app.listen(PORT, () => console.log(`App has been started on port ${PORT}...`))
+    } catch (e) {
+        console.log('Server Error', e.message)
+        process.exit(1)
+    }
+}
+
+start()
