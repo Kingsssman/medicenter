@@ -1,6 +1,6 @@
-// @ts-ignore
 const express = require('express')
 const mongoose = require('mongoose')
+const usersRouter = require('./routes/users');
 
 const mongoUri = "mongodb+srv://Evgeniy:1234@cluster0-fixk3.azure.mongodb.net/app?retryWrites=true&w=majority"
 const PORT = 5000
@@ -10,6 +10,8 @@ const app = express()
 app.get('/', (req:any,res:any) => {
     res.send('Home Page')
 });
+
+app.use('/users', usersRouter);
 
 async function start() {
     try {

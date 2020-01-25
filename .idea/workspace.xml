@@ -2,6 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5ab2fda1-28ff-4e62-8cb4-4c4992783b5d" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/server/models/user.model.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/routes/users.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/server.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/server.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tsconfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/tsconfig.json" afterDir="false" />
@@ -10,6 +12,9 @@
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FavoritesManager">
+    <favorites_list name="medicenter" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -33,12 +38,15 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.standard" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.standard" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.standard" value="" />
     <property name="nodejs_interpreter_path" value="node" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
-    <property name="ts.external.directory.path" value="C:\Program Files\JetBrains\WebStorm 2019.3.2\plugins\JavaScriptLanguage\jsLanguageServicesImpl\external" />
+    <property name="settings.editor.selected.configurable" value="preferences.editor" />
+    <property name="ts.external.directory.path" value="C:\Users\evgen\WebstormProjects\medicenter\node_modules\typescript\lib" />
   </component>
   <component name="RunManager" selected="npm.start:server">
     <configuration name="Debug Application" type="JavascriptDebugType" uri="http://localhost:3000">
@@ -84,6 +92,11 @@
       <workItem from="1579959570238" duration="181000" />
       <workItem from="1579961718734" duration="258000" />
       <workItem from="1579962102075" duration="3638000" />
+      <workItem from="1579969889622" duration="1871000" />
+      <workItem from="1579971841310" duration="8655000" />
+      <workItem from="1579982565175" duration="714000" />
+      <workItem from="1579983293303" duration="71000" />
+      <workItem from="1579983373940" duration="615000" />
     </task>
     <servers />
   </component>
@@ -91,29 +104,37 @@
     <option name="version" value="1" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="452" y="94" key="#ESLint" timestamp="1579980945991">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="452" y="94" key="#ESLint/0.0.1920.1040@0.0.1920.1040" timestamp="1579980945991" />
     <state x="508" y="43" key="CommitChangelistDialog2" timestamp="1579884227087">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="508" y="43" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1579884227087" />
-    <state width="1893" height="251" key="GridCell.Tab.0.bottom" timestamp="1579965067664">
+    <state width="1893" height="250" key="GridCell.Tab.0.bottom" timestamp="1579983878955">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1893" height="251" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1579965067664" />
-    <state width="1893" height="251" key="GridCell.Tab.0.center" timestamp="1579965067664">
+    <state width="1893" height="250" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1579983878955" />
+    <state width="1893" height="250" key="GridCell.Tab.0.center" timestamp="1579983878955">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1893" height="251" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1579965067664" />
-    <state width="1893" height="251" key="GridCell.Tab.0.left" timestamp="1579965067664">
+    <state width="1893" height="250" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1579983878955" />
+    <state width="1893" height="250" key="GridCell.Tab.0.left" timestamp="1579983878954">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1893" height="251" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1579965067664" />
-    <state width="1893" height="251" key="GridCell.Tab.0.right" timestamp="1579965067664">
+    <state width="1893" height="250" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1579983878954" />
+    <state width="1893" height="250" key="GridCell.Tab.0.right" timestamp="1579983878955">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1893" height="251" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1579965067664" />
-    <state x="657" y="95" key="SettingsEditor" timestamp="1579963580257">
+    <state width="1893" height="250" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1579983878955" />
+    <state x="657" y="95" key="SettingsEditor" timestamp="1579983685719">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="657" y="95" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1579963580257" />
+    <state x="657" y="95" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1579983685719" />
+    <state x="532" y="237" key="run.anything.popup" timestamp="1579983647308">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="532" y="237" key="run.anything.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1579983647308" />
   </component>
 </project>
