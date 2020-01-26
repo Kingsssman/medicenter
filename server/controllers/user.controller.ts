@@ -18,12 +18,12 @@ module.exports.user_create = function (req: any, res: any) {
 };
 
 module.exports.user_details = function (req: any, res: any) {
-    User.findById(req.params.id, function (err: any, user: any) {
+    User.find(function (err: any, users: any) {
         if (err) {
-            res.send('User Read Error');
+            res.send('Users Read Error');
             console.log(err);
         }
-        res.send(user);
+        res.send(users);
     });
 };
 

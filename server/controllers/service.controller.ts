@@ -19,12 +19,12 @@ module.exports.service_create = function (req: any, res: any) {
 };
 
 module.exports.service_details = function (req: any, res: any) {
-    Service.findById(req.params.id, function (err: any, service: any) {
+    Service.find(function (err: any, services: any) {
         if (err) {
             res.send('Service Read Error');
             console.log(err);
         }
-        res.send(service);
+        res.send(services);
     });
 };
 

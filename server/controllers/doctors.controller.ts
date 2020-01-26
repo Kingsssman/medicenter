@@ -20,7 +20,7 @@ module.exports.doctors_create = function (req: any, res: any) {
 };
 
 module.exports.doctors_details = function (req: any, res: any) {
-    Doctors.findById(req.params.id, function (err: any, doctors: any) {
+    Doctors.find(function (err: any, doctors: any) {
         if (err) {
             res.send('Doctors Read Error');
             console.log(err);
