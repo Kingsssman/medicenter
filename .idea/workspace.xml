@@ -1,13 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="5ab2fda1-28ff-4e62-8cb4-4c4992783b5d" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/server/controllers/user.controller.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/routes/users.route.ts" afterDir="false" />
+    <list default="true" id="5ab2fda1-28ff-4e62-8cb4-4c4992783b5d" name="Default Changelist" comment="Add CRUD users">
+      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/controllers/user.controller.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/controllers/user.controller.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/models/user.model.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/models/user.model.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/routes/users.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/routes/users.route.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/routes/users.route.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/server.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/server.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -47,7 +46,7 @@
     <property name="node.js.selected.package.standard" value="" />
     <property name="nodejs_interpreter_path" value="node" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="settings.editor.selected.configurable" value="preferences.editor" />
+    <property name="settings.editor.selected.configurable" value="preferences.keymap" />
     <property name="ts.external.directory.path" value="C:\Users\evgen\WebstormProjects\medicenter\node_modules\typescript\lib" />
   </component>
   <component name="RunManager" selected="npm.start:server">
@@ -100,7 +99,7 @@
       <workItem from="1579983293303" duration="71000" />
       <workItem from="1579983373940" duration="3621000" />
       <workItem from="1580021383640" duration="3188000" />
-      <workItem from="1580024589946" duration="962000" />
+      <workItem from="1580024589946" duration="4288000" />
     </task>
     <task id="LOCAL-00001" summary="Add users mongodb">
       <created>1579984240032</created>
@@ -109,7 +108,14 @@
       <option name="project" value="LOCAL" />
       <updated>1579984240032</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Fix error with user create">
+      <created>1580025779666</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1580025779666</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -117,40 +123,49 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Add users mongodb" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add users mongodb" />
+    <MESSAGE value="Fix error with user create" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fix error with user create" />
   </component>
   <component name="WindowStateProjectService">
     <state x="452" y="94" key="#ESLint" timestamp="1579980945991">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="452" y="94" key="#ESLint/0.0.1920.1040@0.0.1920.1040" timestamp="1579980945991" />
-    <state x="508" y="43" key="CommitChangelistDialog2" timestamp="1579984238712">
+    <state x="508" y="43" key="CommitChangelistDialog2" timestamp="1580028928103">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="508" y="43" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1579984238712" />
-    <state width="1893" height="250" key="GridCell.Tab.0.bottom" timestamp="1580024576493">
+    <state x="508" y="43" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1580028928103" />
+    <state width="1893" height="250" key="GridCell.Tab.0.bottom" timestamp="1580028928145">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1893" height="250" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1580024576493" />
-    <state width="1893" height="250" key="GridCell.Tab.0.center" timestamp="1580024576493">
+    <state width="1893" height="250" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1580028928145" />
+    <state width="1893" height="250" key="GridCell.Tab.0.center" timestamp="1580028928145">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1893" height="250" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1580024576493" />
-    <state width="1893" height="250" key="GridCell.Tab.0.left" timestamp="1580024576493">
+    <state width="1893" height="250" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1580028928145" />
+    <state width="1893" height="250" key="GridCell.Tab.0.left" timestamp="1580028928145">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1893" height="250" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1580024576493" />
-    <state width="1893" height="250" key="GridCell.Tab.0.right" timestamp="1580024576493">
+    <state width="1893" height="250" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1580028928145" />
+    <state width="1893" height="250" key="GridCell.Tab.0.right" timestamp="1580028928145">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1893" height="250" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1580024576493" />
-    <state x="657" y="95" key="SettingsEditor" timestamp="1579983685719">
+    <state width="1893" height="250" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1580028928145" />
+    <state x="-7" y="0" width="1155" height="1040" key="SettingsEditor" timestamp="1580028844708">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="657" y="95" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1579983685719" />
+    <state x="-7" y="0" width="1155" height="1040" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1580028844708" />
+    <state x="452" y="187" key="Vcs.Push.Dialog.v2" timestamp="1580029043471">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="452" y="187" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1580029043471" />
     <state x="532" y="237" key="run.anything.popup" timestamp="1579983647308">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="532" y="237" key="run.anything.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1579983647308" />
+    <state x="625" y="266" width="840" height="1034" key="search.everywhere.popup" timestamp="1580028806105">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="625" y="266" width="840" height="1034" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1580028806105" />
   </component>
 </project>
