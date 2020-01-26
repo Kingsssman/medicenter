@@ -3,6 +3,7 @@ const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const user = require('./routes/users.route');
 const service = require('./routes/service.route');
+const doctors = require('./routes/doctors.route');
 
 const mongoUri = 'mongodb+srv://Evgeniy:1234@cluster0-fixk3.azure.mongodb.net/app?retryWrites=true&w=majority';
 const PORT = 5000;
@@ -14,6 +15,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
 app.use('/users', user);
 app.use('/services', service);
+app.use('/doctors', doctors);
 
 
 async function start() {
