@@ -3,10 +3,25 @@ const Doctors = require('../models/doctors.model');
 module.exports.doctors_create = function (req: any, res: any) {
     let doctors = new Doctors(
         {
-            name: req.body.name,
+            doc_name: req.body.doc_name,
             speciality: req.body.spec,
             desc: req.body.desc,
-            img: req.body.img
+            img: req.body.img,
+            work_schedule: {
+                day: req.body.day,
+                slots: [{
+                    slot1: {
+                        booked: req.body.booked,
+                        user_tel: req.body.user_tel,
+                        user_name: req.body.user_name
+                    },
+                    slot2: {
+                        booked: req.body.booked,
+                        user_tel: req.body.user_tel,
+                        user_name: req.body.user_name
+                    }
+                }]
+            }
         }
     );
 
