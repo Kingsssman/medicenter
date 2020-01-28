@@ -3,8 +3,9 @@ const Service = require('../models/service.model');
 module.exports.service_create = function (req: any, res: any) {
     let service = new Service(
         {
-            name: req.body.name,
-            desc: req.body.desc
+            title: req.body.title,
+            desc: req.body.desc,
+            img: req.body.img
         }
     );
 

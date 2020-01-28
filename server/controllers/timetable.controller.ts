@@ -3,7 +3,6 @@ const Timetable = require('../models/timetable.model');
 module.exports.timetable_create = function (req: any, res: any) {
     let timetable = new Timetable(
         {
-            id_rec: req.body.id_rec,
             id_doc: req.body.id_doc,
             schedule_begin: req.body.s_b,
             schedule_end: req.body.s_e,

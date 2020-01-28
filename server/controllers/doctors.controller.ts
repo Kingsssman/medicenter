@@ -5,7 +5,8 @@ module.exports.doctors_create = function (req: any, res: any) {
         {
             name: req.body.name,
             speciality: req.body.spec,
-            desc: req.body.desc
+            desc: req.body.desc,
+            img: req.body.img
         }
     );
 

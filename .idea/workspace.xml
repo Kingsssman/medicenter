@@ -1,16 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="5ab2fda1-28ff-4e62-8cb4-4c4992783b5d" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/server/controllers/timetable.controller.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/models/timetable.model.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/routes/timetable.route.ts" afterDir="false" />
+    <list default="true" id="5ab2fda1-28ff-4e62-8cb4-4c4992783b5d" name="Default Changelist" comment="Add API for online booking">
+      <change afterPath="$PROJECT_DIR$/server/controllers/booking.controller.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/models/booking.model.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/routes/booking.route.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/controllers/user.controller.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/controllers/doctors.controller.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/controllers/doctors.controller.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/controllers/service.controller.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/controllers/service.controller.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/controllers/timetable.controller.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/controllers/timetable.controller.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/models/doctors.model.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/models/doctors.model.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/models/user.model.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/routes/users.route.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/server.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/server.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/models/service.model.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/models/service.model.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/models/timetable.model.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/models/timetable.model.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -50,7 +51,7 @@
     <property name="nodejs_interpreter_path" value="node" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
-    <property name="ts.external.directory.path" value="C:\Users\evgda\WebstormProjects\medicenter\node_modules\typescript\lib" />
+    <property name="ts.external.directory.path" value="C:\Users\evgen\WebstormProjects\medicenter\node_modules\typescript\lib" />
   </component>
   <component name="RunManager" selected="npm.start:server">
     <configuration name="Debug Application" type="JavascriptDebugType" uri="http://localhost:3000">
@@ -109,6 +110,8 @@
       <workItem from="1580067999748" duration="1598000" />
       <workItem from="1580109577956" duration="538000" />
       <workItem from="1580110125931" duration="6717000" />
+      <workItem from="1580158127004" duration="110000" />
+      <workItem from="1580186506190" duration="2913000" />
     </task>
     <task id="LOCAL-00001" summary="Add users mongodb">
       <created>1579984240032</created>
@@ -176,30 +179,30 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="690" y="267" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1580111613460" />
-    <state x="508" y="43" key="CommitChangelistDialog2" timestamp="1580051812300">
+    <state x="892" y="80" key="CommitChangelistDialog2" timestamp="1580189472831">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="508" y="43" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1580051812300" />
-    <state width="1214" height="282" key="GridCell.Tab.0.bottom" timestamp="1580117872603">
+    <state x="892" y="80" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1580189472831" />
+    <state width="1893" height="250" key="GridCell.Tab.0.bottom" timestamp="1580189474366">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1214" height="282" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1580117872603" />
-    <state width="1214" height="282" key="GridCell.Tab.0.center" timestamp="1580117872603">
+    <state width="1893" height="250" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1580189474366" />
+    <state width="1893" height="250" key="GridCell.Tab.0.center" timestamp="1580189474366">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1214" height="282" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1580117872603" />
-    <state width="1214" height="282" key="GridCell.Tab.0.left" timestamp="1580117872603">
+    <state width="1893" height="250" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1580189474366" />
+    <state width="1893" height="250" key="GridCell.Tab.0.left" timestamp="1580189474366">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1214" height="282" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1580117872603" />
-    <state width="1214" height="282" key="GridCell.Tab.0.right" timestamp="1580117872603">
+    <state width="1893" height="250" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1580189474366" />
+    <state width="1893" height="250" key="GridCell.Tab.0.right" timestamp="1580189474366">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1214" height="282" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1580117872603" />
-    <state x="702" y="162" key="RollbackChangesDialog" timestamp="1580068924743">
+    <state width="1893" height="250" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1580189474366" />
+    <state x="702" y="162" key="RollbackChangesDialog" timestamp="1580125611675">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="702" y="162" key="RollbackChangesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1580068924743" />
+    <state x="702" y="162" key="RollbackChangesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1580125611675" />
     <state x="262" y="0" width="1155" height="1040" key="SettingsEditor" timestamp="1580114495830">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
