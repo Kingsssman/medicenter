@@ -13,12 +13,14 @@ module.exports.doctors_create = function (req: any, res: any) {
                     slot1: {
                         booked: req.body.booked,
                         user_tel: req.body.user_tel,
-                        user_name: req.body.user_name
+                        user_name: req.body.user_name,
+                        time: req.body.time,
                     },
                     slot2: {
                         booked: req.body.booked,
                         user_tel: req.body.user_tel,
-                        user_name: req.body.user_name
+                        user_name: req.body.user_name,
+                        time: req.body.time,
                     }
                 }]
             }

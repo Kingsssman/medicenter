@@ -1,12 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="5ab2fda1-28ff-4e62-8cb4-4c4992783b5d" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/controllers/doctors.controller.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/controllers/doctors.controller.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/models/doctors.model.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/models/doctors.model.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/routes/doctors.route.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/routes/doctors.route.ts" afterDir="false" />
-    </list>
+    <list default="true" id="5ab2fda1-28ff-4e62-8cb4-4c4992783b5d" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -45,7 +40,7 @@
     <property name="nodejs_interpreter_path" value="node" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
-    <property name="ts.external.directory.path" value="C:\Users\evgen\WebstormProjects\medicenter\node_modules\typescript\lib" />
+    <property name="ts.external.directory.path" value="C:\Users\evgda\WebstormProjects\medicenter\node_modules\typescript\lib" />
   </component>
   <component name="RunManager" selected="npm.start:server">
     <configuration name="Debug Application" type="JavascriptDebugType" uri="http://localhost:3000">
@@ -142,7 +137,14 @@
       <option name="project" value="LOCAL" />
       <updated>1580051813752</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Redesign doctor table">
+      <created>1580203482164</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1580203482165</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -155,7 +157,8 @@
     <MESSAGE value="Add CRUD for users" />
     <MESSAGE value="Add API for services" />
     <MESSAGE value="Add API for doctors" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add API for doctors" />
+    <MESSAGE value="Redesign doctor table" />
+    <option name="LAST_COMMIT_MESSAGE" value="Redesign doctor table" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
@@ -173,26 +176,26 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="690" y="267" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1580203395530" />
-    <state x="892" y="80" key="CommitChangelistDialog2" timestamp="1580189472831">
+    <state x="892" y="80" key="CommitChangelistDialog2" timestamp="1580203481447">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="892" y="80" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1580189472831" />
-    <state width="1281" height="281" key="GridCell.Tab.0.bottom" timestamp="1580203415471">
+    <state x="892" y="80" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1580203481447" />
+    <state width="1281" height="281" key="GridCell.Tab.0.bottom" timestamp="1580203507888">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1281" height="281" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1580203415471" />
-    <state width="1281" height="281" key="GridCell.Tab.0.center" timestamp="1580203415471">
+    <state width="1281" height="281" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1580203507888" />
+    <state width="1281" height="281" key="GridCell.Tab.0.center" timestamp="1580203507888">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1281" height="281" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1580203415471" />
-    <state width="1281" height="281" key="GridCell.Tab.0.left" timestamp="1580203415471">
+    <state width="1281" height="281" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1580203507888" />
+    <state width="1281" height="281" key="GridCell.Tab.0.left" timestamp="1580203507887">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1281" height="281" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1580203415471" />
-    <state width="1281" height="281" key="GridCell.Tab.0.right" timestamp="1580203415471">
+    <state width="1281" height="281" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1580203507887" />
+    <state width="1281" height="281" key="GridCell.Tab.0.right" timestamp="1580203507888">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1281" height="281" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1580203415471" />
+    <state width="1281" height="281" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1580203507888" />
     <state x="702" y="162" key="RollbackChangesDialog" timestamp="1580125611675">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -201,10 +204,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="262" y="0" width="1155" height="1040" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1580114495830" />
-    <state x="452" y="187" key="Vcs.Push.Dialog.v2" timestamp="1580203439064">
+    <state x="452" y="187" key="Vcs.Push.Dialog.v2" timestamp="1580203889641">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="452" y="187" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1580203439064" />
+    <state x="452" y="187" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1580203889641" />
     <state x="532" y="237" key="run.anything.popup" timestamp="1580068878692">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

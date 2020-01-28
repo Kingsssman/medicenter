@@ -15,7 +15,8 @@ const doctorsSchema = new Schema({
                     default: 1
                 },
                 user_tel: String,
-                user_name: String
+                user_name: String,
+                tel: String
             },
             slot2: {
                 booked: {
@@ -23,7 +24,8 @@ const doctorsSchema = new Schema({
                     default: 1
                 },
                 user_tel: String,
-                user_name: String
+                user_name: String,
+                tel: String
             }
         }]
     }
