@@ -1,4 +1,4 @@
-const Doctors = require('../models/doctors.model');
+import Doctors from '../models/doctors.model';
 
 module.exports.doctors_create = function (req: any, res: any) {
     let doctors = new Doctors(

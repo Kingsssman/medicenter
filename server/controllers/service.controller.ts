@@ -1,4 +1,4 @@
-const Service = require('../models/service.model');
+import Service from '../models/service.model';
 
 module.exports.service_create = function (req: any, res: any) {
     let service = new Service(

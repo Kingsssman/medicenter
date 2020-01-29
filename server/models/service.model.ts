@@ -1,4 +1,5 @@
-const mongoose = require('mongoose');
+import mongoose from 'mongoose';
+
 const Schema = mongoose.Schema;
 
 const serviceSchema = new Schema({
@@ -7,5 +8,4 @@ const serviceSchema = new Schema({
     img: {type: String, required: true}
 });
 
-module.exports = mongoose.model('Service', serviceSchema);
-export {};
+export default mongoose.model('Service', serviceSchema);

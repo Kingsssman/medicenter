@@ -1,8 +1,8 @@
-const express = require('express');
-const mongoose = require('mongoose');
-const bodyParser = require('body-parser');
-const service = require('./routes/service.route');
-const doctors = require('./routes/doctors.route');
+import express from 'express';
+import mongoose from 'mongoose';
+import bodyParser from 'body-parser';
+import service from './routes/service.route';
+import doctors from './routes/doctors.route';
 
 const mongoUri = 'mongodb+srv://Evgeniy:1234@cluster0-fixk3.azure.mongodb.net/app?retryWrites=true&w=majority';
 const PORT = 5000;
