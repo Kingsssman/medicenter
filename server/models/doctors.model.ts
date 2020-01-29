@@ -6,29 +6,20 @@ const doctorsSchema = new Schema({
     speciality: String,
     desc: String,
     img: String,
-    work_schedule: {
+    work_schedule: [{
         day: String,
-        slots: [{
-            slot1: {
+        slots: [
+            {
                 booked: {
                     type: Boolean,
-                    default: 1
-                },
-                user_tel: String,
-                user_name: String,
-                tel: String
-            },
-            slot2: {
-                booked: {
-                    type: Boolean,
-                    default: 1
+                    default: false
                 },
                 user_tel: String,
                 user_name: String,
                 tel: String
             }
-        }]
-    }
+        ]
+    }]
 });
 
 module.exports = mongoose.model('Doctors', doctorsSchema);

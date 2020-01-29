@@ -7,23 +7,17 @@ module.exports.doctors_create = function (req: any, res: any) {
             speciality: req.body.spec,
             desc: req.body.desc,
             img: req.body.img,
-            work_schedule: {
+            work_schedule: [{
                 day: req.body.day,
-                slots: [{
-                    slot1: {
-                        booked: req.body.booked,
-                        user_tel: req.body.user_tel,
-                        user_name: req.body.user_name,
-                        time: req.body.time,
-                    },
-                    slot2: {
+                slots: [
+                    {
                         booked: req.body.booked,
                         user_tel: req.body.user_tel,
                         user_name: req.body.user_name,
                         time: req.body.time,
                     }
-                }]
-            }
+                ]
+            }]
         }
     );
 
