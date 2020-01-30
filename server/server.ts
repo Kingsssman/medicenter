@@ -13,7 +13,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
 app.use('/services', service);
 app.use('/doctors', doctors);
-
+// app.use('auth',)
 
 async function start() {
     try {
