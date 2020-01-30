@@ -1,9 +1,11 @@
 import {Request, Response, Router} from 'express';
 import Admin from '../models/admin.model';
 import bcryptjs from 'bcryptjs';
+import jwt from 'jsonwebtoken';
 import {check, validationResult} from 'express-validator';
 
 const route = Router();
+const jwtSecret = 'evgeniy web';
 
 route.post('/register',
     [
@@ -44,14 +46,21 @@ route.post('/login',
 
             const {email, password} = req.body;
 
-            const candidate = await Admin.findOne({email});
+            const user: any = await Admin.findOne({email});
 
-            if (candidate) return res.status(400).json('Not founded');
+            if (!user) return res.status(400).json('Incorrect input');
 
-            const isMatched = await bcryptjs.compare(password, candidate.password);
+            const isMatched = await bcryptjs.compare(password, user.password);
 
-            if (!isMatched) return res.status(400).json('Password incorrect');
+            if (!isMatched) return res.status(400).json('Incorrect input');
 
+            const token = jwt.sign(
+              {userId: user.id},
+              jwtSecret,
+              {expiresIn: '1h'}
+            );
+
+            res.json({token, userId: user.id})
         } catch (e) {
             res.status(500).json({message: 'Something wrong'});
         }

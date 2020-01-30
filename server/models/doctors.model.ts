@@ -12,12 +12,18 @@ const doctorsSchema = new Schema({
         slots: [
             {
                 booked: {
-                    type: Boolean,
+                    type: String,
                     default: false
                 },
-                user_tel: String,
-                user_name: String,
-                tel: String
+                user_tel: {
+                    type: String,
+                    default: ' '
+                },
+                user_name: {
+                    type: String,
+                    default: ' '
+                },
+                time: {type: String}
             }
         ]
     }]
