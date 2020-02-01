@@ -91,6 +91,8 @@ module.exports.doctors_update = function (req: any, res: any) {
             doc.work_schedule[selected_day].slots[selected_time].user_name = user_name;
 
             res.send(doc.work_schedule[selected_day]);
+
+            doc.save();
         }
     });
 };

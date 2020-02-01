@@ -12,9 +12,9 @@ const app = express();
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
-app.use('/services', service);
-app.use('/doctors', doctors);
-app.use('/auth', admin);
+app.use('/api/services', service);
+app.use('/api/doctors', doctors);
+app.use('/api/auth', admin);
 
 async function start() {
     try {
