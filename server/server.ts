@@ -23,7 +23,9 @@ async function start() {
             useUnifiedTopology: true,
             useCreateIndex: true
         });
-        app.listen(PORT, () => console.log(`App has been started on port ${PORT}...`));
+        if (process.env.NODE_ENV !== 'test') {
+            app.listen(PORT, () => console.log(`App has been started on port ${PORT}...`));
+        }
     } catch (e) {
         console.log('Server Error', e.message);
         process.exit(1);
@@ -31,4 +33,5 @@ async function start() {
 }
 
 start();
+
 module.exports = app;

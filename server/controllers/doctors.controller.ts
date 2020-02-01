@@ -60,10 +60,9 @@ module.exports.doctors_create = function (req: any, res: any) {
 
     doctors.save(function (err: any) {
         if (err) {
-            res.send('Doctors Created Error');
-            console.log(err);
+            return res.send('Doctors Created Error');
         } else {
-            res.send('Doctors Created successfully');
+            return res.status(201).json({doctors});
         }
     });
 };
@@ -72,9 +71,8 @@ module.exports.doctors_details = function (req: any, res: any) {
     Doctors.find(function (err: any, doctors: any) {
         if (err) {
             return res.send('Doctors Read Error');
-            console.log(err);
         }
-        res.send(doctors);
+        return res.status(200).json({doctors});
     });
 };
 
@@ -83,15 +81,14 @@ module.exports.doctors_update = function (req: any, res: any) {
 
     Doctors.findOne({doc_name: doc_name}, function (err: any, doc: any) {
         if (err) {
-            return res.send('Doctors Delete Error');
+            return res.send('Doctors Update Error');
         } else {
             doc.work_schedule[selected_day].slots[selected_time].booked = booked;
             doc.work_schedule[selected_day].slots[selected_time].user_tel = user_tel;
             doc.work_schedule[selected_day].slots[selected_time].user_name = user_name;
-
-            res.send(doc.work_schedule[selected_day]);
-
             doc.save();
+
+            return res.status(200).json({doc});
         }
     });
 };
@@ -101,6 +98,6 @@ module.exports.doctors_delete = function (req: any, res: any) {
         if (err) {
             return res.send('Doctors Delete Error');
         }
-        return res.send('Deleted successfully!');
+        return res.status(204).send("Doctor deleted");
     });
 };

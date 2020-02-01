@@ -22,7 +22,7 @@ describe('Test Endpoints', () => {
 
   it('should update a post', async () => {
     const res = await request(app)
-      .put('/api/services/5e35870f49b294202cf1af46')
+      .put('/api/services/5e358fe389cbfb0a0457e405')
       .send({
         title: "updated",
         desc: 'updated title',
@@ -34,7 +34,7 @@ describe('Test Endpoints', () => {
   });
 
   it('should delete a post', async () => {
-    const res = await request(app).delete('/api/services/5e358d2f12aeca2e98b9ac19');
+    const res = await request(app).delete('/api/services/5e359022b628160574ecaf0d');
     expect(res.statusCode).toEqual(204);
   });
 });

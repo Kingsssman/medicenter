@@ -45,6 +45,6 @@ module.exports.service_delete = function (req: any, res: any) {
             return res.send('Service Delete Error');
             console.log(err);
         }
-        return res.status(204).send("Post deleted");
+        return res.status(204).send("Service deleted");
     });
 };
