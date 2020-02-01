@@ -71,7 +71,7 @@ module.exports.doctors_create = function (req: any, res: any) {
 module.exports.doctors_details = function (req: any, res: any) {
     Doctors.find(function (err: any, doctors: any) {
         if (err) {
-            res.send('Doctors Read Error');
+            return res.send('Doctors Read Error');
             console.log(err);
         }
         res.send(doctors);
@@ -83,8 +83,7 @@ module.exports.doctors_update = function (req: any, res: any) {
 
     Doctors.findOne({doc_name: doc_name}, function (err: any, doc: any) {
         if (err) {
-            res.send('Doctors Delete Error');
-            console.log(err);
+            return res.send('Doctors Delete Error');
         } else {
             doc.work_schedule[selected_day].slots[selected_time].booked = booked;
             doc.work_schedule[selected_day].slots[selected_time].user_tel = user_tel;
@@ -100,10 +99,8 @@ module.exports.doctors_update = function (req: any, res: any) {
 module.exports.doctors_delete = function (req: any, res: any) {
     Doctors.findByIdAndRemove(req.params.id, function (err: any) {
         if (err) {
-            res.send('Doctors Delete Error');
-            console.log(err);
+            return res.send('Doctors Delete Error');
         }
-
-        res.send('Deleted successfully!');
+        return res.send('Deleted successfully!');
     });
 };
