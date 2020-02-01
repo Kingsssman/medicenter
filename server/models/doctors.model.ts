@@ -23,7 +23,10 @@ const doctorsSchema = new Schema({
                     type: String,
                     default: ' '
                 },
-                time: {type: String}
+                time: {
+                    type: String,
+                    default: ''
+                }
             }
         ]
     }]
