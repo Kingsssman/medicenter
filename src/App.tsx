@@ -6,6 +6,7 @@ import useRoutes from "./routes";
 import {useAuth} from "./hooks/auth.hook";
 import {AuthContext} from './context/AuthContext';
 import {Navbar} from "./components/Navigation/Navbar";
+import {Header} from "./components/Header/Header";
 
 const App: React.FC = () => {
   const {token, login, logout, userId} = useAuth();
@@ -16,6 +17,7 @@ const App: React.FC = () => {
     <AuthContext.Provider value={{
       token, login, logout, userId, isAuthenticated
     }}>
+      <Header/>
       <Router>
         <Navbar/>
         <div className='container'>
