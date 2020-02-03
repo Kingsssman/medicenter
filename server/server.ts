@@ -34,4 +34,4 @@ async function start() {
 
 start();
 
-module.exports = app;
+export default app

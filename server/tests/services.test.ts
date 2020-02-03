@@ -1,6 +1,6 @@
-// @ts-ignore
-const request = require('supertest');
-const app = require('../server/server');
+import request from 'supertest';
+import app from '../server';
+
 describe('Test Endpoints', () => {
   it('should create a new post', async () => {
     const res = await request(app)
@@ -10,13 +10,13 @@ describe('Test Endpoints', () => {
         desc: 'test desc',
         img: 'test'
       });
-    expect(res.statusCode).toEqual(201);
+    expect(res.status).toEqual(201);
     expect(res.body).toHaveProperty('service')
   });
 
   it('should fetch all posts', async () => {
     const res = await request(app).get('/api/services');
-    expect(res.statusCode).toEqual(200);
+    expect(res.status).toEqual(200);
     expect(res.body).toHaveProperty('services');
   });
 
@@ -29,12 +29,12 @@ describe('Test Endpoints', () => {
         img: 'Lorem ipsum',
       });
 
-    expect(res.statusCode).toEqual(200);
+    expect(res.status).toEqual(200);
     expect(res.body).toHaveProperty('service');
   });
 
   it('should delete a post', async () => {
     const res = await request(app).delete('/api/services/5e359022b628160574ecaf0d');
-    expect(res.statusCode).toEqual(204);
+    expect(res.status).toEqual(204);
   });
 });

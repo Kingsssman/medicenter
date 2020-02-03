@@ -9,11 +9,6 @@
     "moduleResolution": "node",
     "sourceMap": true
   },
-  "include": [
-    "../server/**/*",
-    "server.ts",
-    "../jest.config.js"
-  ],
   "exclude": [
     "node_modules"
   ]
