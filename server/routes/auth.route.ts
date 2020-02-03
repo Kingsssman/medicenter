@@ -15,13 +15,14 @@ route.post('/register',
     async (req: Request, res: Response) => {
         try {
             const errors = validationResult(req);
+
             if (!errors) return res.status(400).json({message: 'Incorrect data'});
 
             const {email, password} = req.body;
 
             const candidate = await Admin.findOne({email});
 
-            if (candidate) return res.status(400).json({message: 'User already exist'});
+            if (candidate) return res.status(400).json({message: 'Admin already exist'});
 
             const hashedPassword = await bcryptjs.hash(password, 12);
             const admin = new Admin({email, password: hashedPassword});

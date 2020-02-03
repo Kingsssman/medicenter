@@ -5,16 +5,15 @@ import {AuthPage} from "./pages/AuthPage";
 import {AdminPage} from "./pages/AdminPage";
 
 const useRoutes = (isAuthenticated: boolean) => {
-  console.log(isAuthenticated);
   if (isAuthenticated) {
     return (
       <Switch>
-        <Route path="/" exact>
-          <HomePage/>
-        </Route>
         <Route path="/admin" exact>
           <AdminPage/>
         </Route>
+        {/*<Route path="/" exact>*/}
+        {/*  <HomePage/>*/}
+        {/*</Route>*/}
         <Redirect to="/"/>
       </Switch>
     )

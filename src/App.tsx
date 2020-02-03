@@ -5,6 +5,7 @@ import 'materialize-css'
 import useRoutes from "./routes";
 import {useAuth} from "./hooks/auth.hook";
 import {AuthContext} from './context/AuthContext';
+import {Navbar} from "./components/Navigation/Navbar";
 
 const App: React.FC = () => {
   const {token, login, logout, userId} = useAuth();
@@ -16,8 +17,9 @@ const App: React.FC = () => {
       token, login, logout, userId, isAuthenticated
     }}>
       <Router>
+        <Navbar/>
         <div className='container'>
-          <h1>{routes}</h1>
+          {routes}
         </div>
       </Router>
     </AuthContext.Provider>
