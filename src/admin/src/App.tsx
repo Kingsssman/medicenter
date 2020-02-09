@@ -1,31 +1,33 @@
-import React, { Component } from 'react';
-import axios from 'axios';
-import NavigationBar from './components/NavigationBar';
-import ServiceList from './components/ServiceList';
+import React from 'react';
+import { BrowserRouter as Router } from 'react-router-dom';
+import { useRoutes } from './routes';
+import { useAuth } from './hooks/auth.hook';
+import { AuthContext } from './context/AuthContext';
+import 'materialize-css';
+import { Navbar } from './components/NavigationBar';
 
-class App extends Component {
-  state = { services: [] };
 
-  async componentDidMount() {
-    const response = await axios.get('/api/services');
+function App() {
+  const { token, login, logout, userId, ready } = useAuth();
+  const isAuthenticated = !!token;
+  const routes = useRoutes(isAuthenticated);
 
-    this.setState({ services: response.data.services });
-  }
-
-  handleDelete = (itemId: any) => {
-    const services = this.state.services.filter((item: any) => item._id !== itemId);
-    
-    this.setState({ services: services });
-  };
-
-  render() {
-    return (
-      <div>
-        <NavigationBar />
-        <ServiceList services={this.state.services} onDelete={this.handleDelete}/>
-      </div>
-    );
-  }
+  return (
+    <AuthContext.Provider
+      value={{
+        token,
+        login,
+        logout,
+        userId,
+        isAuthenticated
+      }}
+    >
+      <Router>
+        {isAuthenticated && <Navbar />}
+        <div className='container'>{routes}</div>
+      </Router>
+    </AuthContext.Provider>
+  );
 }
 
 export default App;
