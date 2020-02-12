@@ -8,14 +8,14 @@ const Services = () => {
   const initialFormState = { id: null, title: '', desc: '' };
 
   // Setting state
-  const [users, setUsers] = useState<AxiosResponse<any>[]>([]);
+  const [users, setUsers] = useState<any[]>([]);
   const [currentUser, setCurrentUser] = useState(initialFormState);
   const [editing, setEditing] = useState(false);
 
   React.useEffect(function effectFunction() {
-    axios.get('api/services').then(response => {  
+    axios.get('api/services').then(response => {
       setUsers(response.data.services);
-    }); 
+    });
   }, []);
 
   // CRUD operations
@@ -27,17 +27,17 @@ const Services = () => {
     formData.append('title', user.title);
     formData.append('desc', user.desc);
 
-console.log(users);
-    axios.post('/api/services', formData)
-      .then(result => {
-        setUsers([...users, result.data.service])
-      });
+    axios.post('/api/services', formData).then(result => {
+      setUsers([...users, result.data.service]);
+    });
   };
 
   const deleteUser = (id: any) => {
     setEditing(false);
 
-    // setUsers(users.filter(user => user.id !== id));
+    axios.delete('/api/services/' + id).then(res => {
+      setUsers(users.filter(user => user['_id'] !== id));
+    });
   };
 
   const updateUser = (id: number, updatedUser: any) => {

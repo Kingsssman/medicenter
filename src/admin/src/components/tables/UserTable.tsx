@@ -32,7 +32,7 @@ const UserTable = (props: any) => {
                 >
                   Edit
                 </button>
-                <button onClick={() => props.deleteUser(user.id)}>
+                <button onClick={() => props.deleteUser(user._id)}>
                   Delete
                 </button>
               </td>
