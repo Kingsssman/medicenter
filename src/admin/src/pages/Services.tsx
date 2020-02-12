@@ -13,9 +13,10 @@ const Services = () => {
   const [editing, setEditing] = useState(false);
 
   React.useEffect(function effectFunction() {
-    axios.get('api/services').then(response => {
+    axios.get('api/services').then(response => {  
+      console.log(response.data.services);
       setUsers(response.data.services);
-    });
+    }); 
   }, []);
 
   // CRUD operations

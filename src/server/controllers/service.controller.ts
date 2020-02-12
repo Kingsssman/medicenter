@@ -1,14 +1,15 @@
 import Service from '../models/service.model';
 
 module.exports.service_create = function (req: any, res: any) {
+    console.log(req.file)
     let service = new Service(
         {
             title: req.body.title,
             desc: req.body.desc,
-            img: req.body.img
+            img: req.file
         }
     );
-
+        console.log(service)
     service.save(function (err: any) {
         if (err) {
             return res.send('Service Created Error');
