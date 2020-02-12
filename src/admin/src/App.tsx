@@ -3,8 +3,9 @@ import { BrowserRouter as Router } from 'react-router-dom';
 import { useRoutes } from './routes';
 import { useAuth } from './hooks/auth.hook';
 import { AuthContext } from './context/AuthContext';
-import 'materialize-css';
-import { Navbar } from './components/NavigationBar';
+import { NavigationBar } from './components/NavigationBar';
+import Layout from './components/Layout';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 
 function App() {
@@ -13,20 +14,20 @@ function App() {
   const routes = useRoutes(isAuthenticated);
 
   return (
-    <AuthContext.Provider
-      value={{
-        token,
-        login,
-        logout,
-        userId,
-        isAuthenticated
-      }}
-    >
-      <Router>
-        {isAuthenticated && <Navbar />}
-        <div className='container'>{routes}</div>
-      </Router>
-    </AuthContext.Provider>
+      <AuthContext.Provider
+        value={{
+          token,
+          login,
+          logout,
+          userId,
+          isAuthenticated
+        }}
+      >
+        <Router>
+          {isAuthenticated && <NavigationBar />}
+          <Layout>{routes}</Layout>
+        </Router>
+      </AuthContext.Provider>
   );
 }
 

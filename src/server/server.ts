@@ -4,9 +4,11 @@ import bodyParser from 'body-parser';
 import service from '../server/routes/service.route';
 import doctors from '../server/routes/doctors.route';
 import admin from '../server/routes/auth.route'
+import config from 'config';
 
-const mongoUri = 'mongodb+srv://Evgeniy:1234@cluster0-fixk3.azure.mongodb.net/app?retryWrites=true&w=majority';
-const PORT = 5000;
+
+const mongoUri:string = config.get('mongoUri');
+const PORT:number = config.get('port');
 
 const app = express();
 

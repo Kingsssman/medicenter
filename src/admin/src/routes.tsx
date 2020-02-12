@@ -14,7 +14,7 @@ export const useRoutes = (isAuthenticated:any) => {
         <Route path='/services' exact>
           <Services />
         </Route>
-        <Redirect to='/doctors' />
+        <Redirect to='/services' />
       </Switch>
     );
   }

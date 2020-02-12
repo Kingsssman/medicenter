@@ -1,12 +1,9 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { Form, Button } from 'react-bootstrap';
 
-const EditUserForm = (props: any) => {
-  const [user, setUser] = useState(props.currentUser);
-
-  useEffect(() => {
-    setUser(props.currentUser);
-  }, [props]);
+const AddUserForm = (props: any) => {
+  const initialFormState = { title: '', desc: '' };
+  const [user, setUser] = useState(initialFormState);
 
   const handleInputChange = (event: any) => {
     const { name, value } = event.target;
@@ -18,7 +15,26 @@ const EditUserForm = (props: any) => {
     <Form
       onSubmit={(event: any) => {
         event.preventDefault();
-        props.updateUser(user.id, user);
+
+        if (!user.title || !user.desc) return;
+
+        const file = (document as any).getElementById('inputGroupFile01').files;
+        const formData = new FormData();
+
+        formData.append('img', file[0]);
+        
+        console.log(formData)
+        fetch('api/services', {
+          method: 'POST',
+          body: formData
+        }).then(r => {
+          console.log(r);
+        });
+        
+        console.log(file[0]);
+
+        // props.addUser(user);
+        // setUser(initialFormState);
       }}
     >
       <Form.Group controlId='formTitle'>
@@ -57,17 +73,17 @@ const EditUserForm = (props: any) => {
         </div>
       </div>
 
-      <Button variant='primary' type='submit' name='action'>
-        Save
-      </Button>
-      <Button variant='primary' type='submit' name='cancel'>
-        Cancel
+      <Button variant='primary' type='submit'>
+        Add
       </Button>
     </Form>
     // <form
     //   onSubmit={event => {
     //     event.preventDefault();
-    //     props.updateUser(user.id, user);
+    //     if (!user.title || !user.desc) return;
+
+    //     props.addUser(user);
+    //     setUser(initialFormState);
     //   }}
     // >
     //   <div className='row'>
@@ -76,7 +92,7 @@ const EditUserForm = (props: any) => {
     //         id='title'
     //         type='text'
     //         className='validate'
-    //         name='name'
+    //         name='title'
     //         value={user.title}
     //         onChange={handleInputChange}
     //       />
@@ -87,7 +103,7 @@ const EditUserForm = (props: any) => {
     //         id='desc'
     //         type='text'
     //         className='validate'
-    //         name='username'
+    //         name='desc'
     //         value={user.desc}
     //         onChange={handleInputChange}
     //       />
@@ -109,22 +125,17 @@ const EditUserForm = (props: any) => {
     //     type='submit'
     //     name='action'
     //   >
-    //     save
-    //     <i className='material-icons right'></i>
-    //   </button>
-    //   <button
-    //     className='btn waves-effect waves-light'
-    //     name='cancel'
-    //   >
-    //     cancel
+    //     Add new
     //     <i className='material-icons right'></i>
     //   </button>
     // </form>
     // <form
     //   onSubmit={event => {
     //     event.preventDefault();
+    //     if (!user.name || !user.username) return;
 
-    //     props.updateUser(user.id, user);
+    //     props.addUser(user);
+    //     setUser(initialFormState);
     //   }}
     // >
     //   <label>Name</label>
@@ -141,15 +152,9 @@ const EditUserForm = (props: any) => {
     //     value={user.username}
     //     onChange={handleInputChange}
     //   />
-    //   <button>Update user</button>
-    //   <button
-    //     onClick={() => props.setEditing(false)}
-    //     classNameName='button muted-button'
-    //   >
-    //     Cancel
-    //   </button>
+    //   <button>Add new user</button>
     // </form>
   );
 };
 
-export default EditUserForm;
+export default AddUserForm;
