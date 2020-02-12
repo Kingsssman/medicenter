@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import {Button, Form} from 'react-bootstrap';
 
 const AddUserForm = (props: any) => {
-  const initialFormState = {title: '', desc: ''};
+  const initialFormState = {title: '', desc: '', img: null};
   const [user, setUser] = useState(initialFormState);
 
   const handleInputChange = (event: any) => {
@@ -16,26 +16,10 @@ const AddUserForm = (props: any) => {
       onSubmit={(event: any) => {
         event.preventDefault();
 
-        if (!user.title || !user.desc) return;
-
-        const file = (document as any).getElementById('inputGroupFile01').files;
-        const formData = new FormData();
-
-        formData.append('img', file[0]);
-        formData.append('title', user.title);
-        formData.append('desc', user.desc);
-
-        fetch('api/services', {
-          method: 'POST',
-          body: formData
-        }).then(res => {
-          console.log(res);
-        });
-
-        console.log(file[0]);
-
-        // props.addUser(user);
-        // setUser(initialFormState);
+        if (!user.title || !user.desc || !user.img) return;
+        
+        props.addUser(user);
+        setUser(initialFormState);
       }}
     >
       <Form.Group controlId='formTitle'>
@@ -67,6 +51,8 @@ const AddUserForm = (props: any) => {
             className='custom-file-input'
             id='inputGroupFile01'
             aria-describedby='inputGroupFileAddon01'
+            name='img'
+            onChange={handleInputChange}
           />
           <label className='custom-file-label' htmlFor='inputGroupFile01'>
             Choose Image

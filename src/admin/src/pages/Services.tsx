@@ -2,29 +2,35 @@ import React, { useState, Fragment } from 'react';
 import EditUserForm from '../components/forms/EditUserForm';
 import AddUserForm from '../components/forms/AddServiceForm';
 import UserTable from '../components/tables/UserTable';
-import axios from 'axios';
+import axios, { AxiosResponse } from 'axios';
 
 const Services = () => {
   const initialFormState = { id: null, title: '', desc: '' };
 
   // Setting state
-  const [users, setUsers] = useState([]);
+  const [users, setUsers] = useState<AxiosResponse<any>[]>([]);
   const [currentUser, setCurrentUser] = useState(initialFormState);
   const [editing, setEditing] = useState(false);
 
   React.useEffect(function effectFunction() {
     axios.get('api/services').then(response => {  
-      console.log(response.data.services);
       setUsers(response.data.services);
     }); 
   }, []);
 
   // CRUD operations
   const addUser = (user: any) => {
-    const { title, desc } = user;
-    axios.post('/api/services', {title, desc})
+    const file = (document as any).getElementById('inputGroupFile01').files;
+    const formData = new FormData();
+
+    formData.append('img', file[0]);
+    formData.append('title', user.title);
+    formData.append('desc', user.desc);
+
+console.log(users);
+    axios.post('/api/services', formData)
       .then(result => {
-        console.log(result);
+        setUsers([...users, result.data.service])
       });
   };
 
