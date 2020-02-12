@@ -1,14 +1,14 @@
-import React, { useState } from 'react';
-import { Form, Button } from 'react-bootstrap';
+import React, {useState} from 'react';
+import {Button, Form} from 'react-bootstrap';
 
 const AddUserForm = (props: any) => {
-  const initialFormState = { title: '', desc: '' };
+  const initialFormState = {title: '', desc: ''};
   const [user, setUser] = useState(initialFormState);
 
   const handleInputChange = (event: any) => {
-    const { name, value } = event.target;
+    const {name, value} = event.target;
 
-    setUser({ ...user, [name]: value });
+    setUser({...user, [name]: value});
   };
 
   return (
@@ -22,15 +22,16 @@ const AddUserForm = (props: any) => {
         const formData = new FormData();
 
         formData.append('img', file[0]);
-        
-        console.log(formData)
+        formData.append('title', user.title);
+        formData.append('desc', user.desc);
+
         fetch('api/services', {
           method: 'POST',
           body: formData
-        }).then(r => {
-          console.log(r);
+        }).then(res => {
+          console.log(res);
         });
-        
+
         console.log(file[0]);
 
         // props.addUser(user);
