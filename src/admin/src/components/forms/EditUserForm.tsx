@@ -10,7 +10,7 @@ const EditUserForm = (props: any) => {
 
   const handleInputChange = (event: any) => {
     const { name, value } = event.target;
-
+    
     setUser({ ...user, [name]: value });
   };
 

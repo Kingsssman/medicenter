@@ -1,24 +1,41 @@
-import React, {useState} from 'react';
-import {Button, Form} from 'react-bootstrap';
+import React, { useState } from 'react';
+import { Button, Form } from 'react-bootstrap';
 
 const AddUserForm = (props: any) => {
-  const initialFormState = {title: '', desc: '', img: null};
+  const initialFormState = { title: '', desc: '', img: '' };
   const [user, setUser] = useState(initialFormState);
 
   const handleInputChange = (event: any) => {
-    const {name, value} = event.target;
+    const { name, value } = event.target;
 
-    setUser({...user, [name]: value});
+    setUser({ ...user, [name]: value });
   };
 
+
+  const handleFileInputChange = (e: any) => {
+
+    setUser({ ...user, [e.target.name]: e.target.files[0].name });
+  };
+
+  const { img } = user
+  let file = null;
+
+  file = img ? (
+    <span>File Selected - {img}</span>
+  ) : (
+    <span>Choose a file...</span>
+    );
+  
   return (
     <Form
       onSubmit={(event: any) => {
         event.preventDefault();
+        console.log(user)
 
         if (!user.title || !user.desc || !user.img) return;
-        
+
         props.addUser(user);
+        (document.getElementById('inputGroupFile01') as any).value = '';
         setUser(initialFormState);
       }}
     >
@@ -52,10 +69,10 @@ const AddUserForm = (props: any) => {
             id='inputGroupFile01'
             aria-describedby='inputGroupFileAddon01'
             name='img'
-            onChange={handleInputChange}
+            onChange={handleFileInputChange}
           />
           <label className='custom-file-label' htmlFor='inputGroupFile01'>
-            Choose Image
+            {file}
           </label>
         </div>
       </div>
@@ -64,83 +81,6 @@ const AddUserForm = (props: any) => {
         Add
       </Button>
     </Form>
-    // <form
-    //   onSubmit={event => {
-    //     event.preventDefault();
-    //     if (!user.title || !user.desc) return;
-
-    //     props.addUser(user);
-    //     setUser(initialFormState);
-    //   }}
-    // >
-    //   <div className='row'>
-    //     <div className='input-field col s12'>
-    //       <input
-    //         id='title'
-    //         type='text'
-    //         className='validate'
-    //         name='title'
-    //         value={user.title}
-    //         onChange={handleInputChange}
-    //       />
-    //       <label htmlFor='title'>Title</label>
-    //     </div>
-    //     <div className='input-field col s12'>
-    //       <input
-    //         id='desc'
-    //         type='text'
-    //         className='validate'
-    //         name='desc'
-    //         value={user.desc}
-    //         onChange={handleInputChange}
-    //       />
-    //       <label htmlFor='desc'>Description</label>
-    //     </div>
-    //     <div>Choose Image</div>
-    //     <div className='file-field input-field'>
-    //       <div className='btn'>
-    //         <span>File</span>
-    //         <input type='file' />
-    //       </div>
-    //       <div className='file-path-wrapper'>
-    //         <input className='file-path validate' type='text' />
-    //       </div>
-    //     </div>
-    //   </div>
-    //   <button
-    //     className='btn waves-effect waves-light'
-    //     type='submit'
-    //     name='action'
-    //   >
-    //     Add new
-    //     <i className='material-icons right'></i>
-    //   </button>
-    // </form>
-    // <form
-    //   onSubmit={event => {
-    //     event.preventDefault();
-    //     if (!user.name || !user.username) return;
-
-    //     props.addUser(user);
-    //     setUser(initialFormState);
-    //   }}
-    // >
-    //   <label>Name</label>
-    //   <input
-    //     type='text'
-    //     name='name'
-    //     value={user.name}
-    //     onChange={handleInputChange}
-    //   />
-    //   <label>Username</label>
-    //   <input
-    //     type='text'
-    //     name='username'
-    //     value={user.username}
-    //     onChange={handleInputChange}
-    //   />
-    //   <button>Add new user</button>
-    // </form>
   );
 };
 

@@ -20,6 +20,7 @@ const Services = () => {
 
   // CRUD operations
   const addUser = (user: any) => {
+    console.log('object');
     const file = (document as any).getElementById('inputGroupFile01').files;
     const formData = new FormData();
 
@@ -29,10 +30,12 @@ const Services = () => {
 
     axios.post('/api/services', formData).then(result => {
       setUsers([...users, result.data.service]);
+      console.log(users);
+      console.log(result.data.service);
     });
   };
 
-  const deleteUser = (id: any) => {
+  const deleteUser = (id: number) => {
     setEditing(false);
 
     axios.delete('/api/services/' + id).then(res => {
@@ -42,8 +45,10 @@ const Services = () => {
 
   const updateUser = (id: number, updatedUser: any) => {
     setEditing(false);
-
-    // setUsers(users.map(user => (user.id === id ? updatedUser : user)));
+    console.log(id, updateUser);
+    // axios.put('/api/services/' + id).then(res => {
+    //   setUsers(users.map(user => (user['_id'] === id ? updatedUser : user)));
+    // });
   };
 
   const editRow = (user: any) => {
