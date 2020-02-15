@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Form, Button } from 'react-bootstrap';
+import { Form, Button, Image } from 'react-bootstrap';
 
 const EditUserForm = (props: any) => {
   const [user, setUser] = useState(props.currentUser);
@@ -10,14 +10,21 @@ const EditUserForm = (props: any) => {
 
   const handleInputChange = (event: any) => {
     const { name, value } = event.target;
-    
     setUser({ ...user, [name]: value });
+  };
+
+  const handleFileInputChange = (e: any) => {
+
+    setUser({ ...user, [e.target.name]: e.target.files[0].name });
   };
 
   return (
     <Form
       onSubmit={(event: any) => {
         event.preventDefault();
+
+        if (!user.title || !user.desc || !user.img) return;
+
         props.updateUser(user.id, user);
       }}
     >
@@ -29,6 +36,7 @@ const EditUserForm = (props: any) => {
           name='title'
           value={user.title}
           onChange={handleInputChange}
+          autoFocus
         />
       </Form.Group>
 
@@ -42,17 +50,20 @@ const EditUserForm = (props: any) => {
           onChange={handleInputChange}
         />
       </Form.Group>
+      {/* <Image src={`data:${user.img.mimetype};base64,${user.img.buffer}`} /> */}
 
       <div className='input-group mb-3'>
         <div className='custom-file'>
           <input
             type='file'
             className='custom-file-input'
-            id='inputGroupFile01'
-            aria-describedby='inputGroupFileAddon01'
+            id='inputGroupFile02'
+            aria-describedby='inputGroupFileAddon02'
+            name='img'
+            onChange={handleFileInputChange}
           />
-          <label className='custom-file-label' htmlFor='inputGroupFile01'>
-            Choose Image
+          <label className='custom-file-label' htmlFor='inputGroupFile02'>
+            Choose image
           </label>
         </div>
       </div>

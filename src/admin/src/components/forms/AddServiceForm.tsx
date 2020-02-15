@@ -30,7 +30,6 @@ const AddUserForm = (props: any) => {
     <Form
       onSubmit={(event: any) => {
         event.preventDefault();
-        console.log(user)
 
         if (!user.title || !user.desc || !user.img) return;
 

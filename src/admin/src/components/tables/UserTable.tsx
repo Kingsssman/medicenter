@@ -18,8 +18,8 @@ const UserTable = (props: any) => {
             <tr key={user._id}>
               <td>
                 <img
-                  src={`data:${user.img.mimetype};base64,${
-                    user.img.buffer}`}
+                    src={`data:${user.img.mimetype};base64,${
+                      user.img.buffer}`}
                 />
               </td>
               <td>{user.title}</td>

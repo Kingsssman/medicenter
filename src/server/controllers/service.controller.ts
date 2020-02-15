@@ -1,9 +1,8 @@
 import Service from '../models/service.model';
-import fs from 'fs'
 
 module.exports.service_create = function (req: any, res: any) {
     let base64data = req.file.buffer.toString('base64');
-    
+
     let service = new Service(
         {
             title: req.body.title,
@@ -36,12 +35,23 @@ module.exports.service_details = function (req: any, res: any) {
 };
 
 module.exports.service_update = function (req: any, res: any) {
-    Service.findByIdAndUpdate(req.params.id, { $set: req.body }, function (err: any, service: any) {
+
+    let base64data = req.file.buffer.toString('base64');
+
+    Service.findById(req.params.id, function (err: any, service: any) {
         if (err) {
             return res.send('Service Update Error');
-            console.log(err);
+        } else {
+            service.title = req.body.title;
+            service.desc = req.body.desc;
+            service.img = {
+                contentType: req.file.mimetype,
+                buffer: base64data
+            }
+
+            service.save();
+            return res.status(200).json({ service });
         }
-        return res.status(200).json({ service });
     });
 };
 
