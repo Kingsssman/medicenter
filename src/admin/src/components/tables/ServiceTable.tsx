@@ -1,8 +1,8 @@
 import React from 'react';
 import { Table } from 'react-bootstrap';
-import './UserTable.scss'
+import './ServiceTable.scss'
 
-const UserTable = (props: any) => {
+const ServiceTable = (props: any) => {
   return (
     <Table striped bordered hover responsive>
       <thead>
@@ -14,25 +14,25 @@ const UserTable = (props: any) => {
         </tr>
       </thead>
       <tbody>
-        {props.users.length > 0 ? (
-          props.users.map((user: any) => (
-            <tr key={user._id}>
+        {props.services.length > 0 ? (
+          props.services.map((service: any) => (
+            <tr key={service._id}>
               <td>
                 <img
-                  src={`data:${user.img.mimetype};base64,${user.img.buffer}`} width={'100%'}
+                  src={`data:${service.img.mimetype};base64,${service.img.buffer}`} width={'100%'}
                 />
               </td>
-              <td>{user.title}</td>
-              <td>{user.desc}</td>
+              <td>{service.title}</td>
+              <td>{service.desc}</td>
               <td>
                 <button
                   onClick={() => {
-                    props.editRow(user);
+                    props.editRow(service);
                   }}
                 >
                   Edit
                 </button>
-                <button onClick={() => props.deleteUser(user._id)}>
+                <button onClick={() => props.deleteService(service._id)}>
                   Delete
                 </button>
               </td>
@@ -40,7 +40,7 @@ const UserTable = (props: any) => {
           ))
         ) : (
           <tr>
-            <td colSpan={4}>No users</td>
+            <td colSpan={4}>No services</td>
           </tr>
         )}
       </tbody>
@@ -48,4 +48,4 @@ const UserTable = (props: any) => {
   );
 };
 
-export default UserTable;
+export default ServiceTable;

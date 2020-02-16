@@ -3,10 +3,10 @@ import mongoose from 'mongoose';
 const Schema = mongoose.Schema;
 
 const doctorsSchema = new Schema({
-    doc_name: String,
-    speciality: String,
-    desc: String,
-    img: String,
+    name: { type: String, required: true },
+    spec: { type: String, required: true },
+    desc: { type: String, required: true },
+    img: { type: Object, required: true },
     work_schedule: [{
         day: String,
         slots: [

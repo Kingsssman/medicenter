@@ -1,21 +1,21 @@
 import React, { useState, useEffect } from 'react';
 import { Form, Button, Image, FormGroup, FormControl } from 'react-bootstrap';
 
-const EditUserForm = (props: any) => {
-  const [user, setUser] = useState(props.currentUser);
+const EditServiceForm = (props: any) => {
+  const [service, setService] = useState(props.currentService);
 
   useEffect(() => {
-    setUser(props.currentUser);
+    setService(props.currentService);
   }, [props]);
 
   const handleInputChange = (event: any) => {
     const { name, value } = event.target;
-    setUser({ ...user, [name]: value });
+    setService({ ...service, [name]: value });
   };
 
   const handleFileInputChange = (e: any) => {
 
-    setUser({ ...user, [e.target.name]: e.target.files[0].name });
+    setService({ ...service, [e.target.name]: e.target.files[0].name });
   };
   
   return (
@@ -23,9 +23,9 @@ const EditUserForm = (props: any) => {
       onSubmit={(event: any) => {
         event.preventDefault();
 
-        if (!user.title || !user.desc || !user.img) return;
+        if (!service.title || !service.desc || !service.img) return;
 
-        props.updateUser(user.id, user);
+        props.updateService(service.id, service);
       }}
     >
       <Form.Group controlId='formTitle'>
@@ -34,7 +34,7 @@ const EditUserForm = (props: any) => {
           type='text'
           placeholder='Enter title'
           name='title'
-          value={user.title}
+          value={service.title}
           onChange={handleInputChange}
           autoFocus
         />
@@ -46,7 +46,7 @@ const EditUserForm = (props: any) => {
           type='text'
           placeholder='Enter Description'
           name='desc'
-          value={user.desc}
+          value={service.desc}
           onChange={handleInputChange}
         />
       </Form.Group>
@@ -75,7 +75,7 @@ const EditUserForm = (props: any) => {
     // <form
     //   onSubmit={event => {
     //     event.preventDefault();
-    //     props.updateUser(user.id, user);
+    //     props.updateService(service.id, service);
     //   }}
     // >
     //   <div className='row'>
@@ -85,7 +85,7 @@ const EditUserForm = (props: any) => {
     //         type='text'
     //         className='validate'
     //         name='name'
-    //         value={user.title}
+    //         value={service.title}
     //         onChange={handleInputChange}
     //       />
     //       <label htmlFor='title'>Title</label>
@@ -95,8 +95,8 @@ const EditUserForm = (props: any) => {
     //         id='desc'
     //         type='text'
     //         className='validate'
-    //         name='username'
-    //         value={user.desc}
+    //         name='servicename'
+    //         value={service.desc}
     //         onChange={handleInputChange}
     //       />
     //       <label htmlFor='desc'>Description</label>
@@ -132,24 +132,24 @@ const EditUserForm = (props: any) => {
     //   onSubmit={event => {
     //     event.preventDefault();
 
-    //     props.updateUser(user.id, user);
+    //     props.updateService(service.id, service);
     //   }}
     // >
     //   <label>Name</label>
     //   <input
     //     type='text'
     //     name='name'
-    //     value={user.name}
+    //     value={service.name}
     //     onChange={handleInputChange}
     //   />
-    //   <label>Username</label>
+    //   <label>Servicename</label>
     //   <input
     //     type='text'
-    //     name='username'
-    //     value={user.username}
+    //     name='servicename'
+    //     value={service.servicename}
     //     onChange={handleInputChange}
     //   />
-    //   <button>Update user</button>
+    //   <button>Update service</button>
     //   <button
     //     onClick={() => props.setEditing(false)}
     //     classNameName='button muted-button'
@@ -160,4 +160,4 @@ const EditUserForm = (props: any) => {
   );
 };
 
-export default EditUserForm;
+export default EditServiceForm;

@@ -1,65 +1,65 @@
 import React, { useState, Fragment } from 'react';
-import EditUserForm from '../components/forms/EditUserForm';
-import AddUserForm from '../components/forms/AddServiceForm';
-import UserTable from '../components/tables/UserTable';
+import EditServiceForm from '../components/forms/EditServiceForm';
+import AddServiceForm from '../components/forms/AddServiceForm';
+import ServiceTable from '../components/tables/ServiceTable';
 import axios from 'axios';
 
 const Services = () => {
   const initialFormState = { id: null, title: '', desc: '', img:null };
 
   // Setting state
-  const [users, setUsers] = useState<any[]>([]);
-  const [currentUser, setCurrentUser] = useState(initialFormState);
+  const [services, setServices] = useState<any[]>([]);
+  const [currentService, setCurrentService] = useState(initialFormState);
   const [editing, setEditing] = useState(false);
 
   React.useEffect(function effectFunction() {
     axios.get('api/services').then(response => {
-      setUsers(response.data.services);
+      setServices(response.data.services);
     });
   }, []);
 
   // CRUD operations
-  const addUser = (user: any) => {
+  const addService = (service: any) => {
 
     const file = (document as any).getElementById('inputGroupFile01').files;
     const formData = new FormData();
 
     formData.append('img', file[0]);
-    formData.append('title', user.title);
-    formData.append('desc', user.desc);
+    formData.append('title', service.title);
+    formData.append('desc', service.desc);
 
     axios.post('/api/services', formData).then(result => {
-      setUsers([...users, result.data.service]);
+      setServices([...services, result.data.service]);
     });
   };
 
-  const deleteUser = (id: number) => {
+  const deleteService = (id: number) => {
     setEditing(false);
 
     axios.delete('/api/services/' + id).then(res => {
-      setUsers(users.filter(user => user['_id'] !== id));
+      setServices(services.filter(service => service['_id'] !== id));
     });
   };
 
-  const updateUser = (id: number, updatedUser: any) => {
+  const updateService = (id: number, updatedService: any) => {
     setEditing(false);
 
     const file = (document as any).getElementById('inputGroupFile02').files;
     const formData = new FormData();
 
     formData.append('img', file[0]);
-    formData.append('title', updatedUser.title);
-    formData.append('desc', updatedUser.desc);
+    formData.append('title', updatedService.title);
+    formData.append('desc', updatedService.desc);
 
     axios.put('/api/services/' + id, formData).then(res => {
-      setUsers(users.map(user => (user['_id'] === id ? res.data.service : user)));
+      setServices(services.map(service => (service['_id'] === id ? res.data.service : service)));
     });
   };
 
-  const editRow = (user: any) => {
+  const editRow = (service: any) => {
     setEditing(true);
 
-    setCurrentUser({ id: user._id, title: user.title, desc: user.desc, img: user.img });
+    setCurrentService({ id: service._id, title: service.title, desc: service.desc, img: service.img });
   };
 
   return (
@@ -69,23 +69,23 @@ const Services = () => {
           {editing ? (
             <Fragment>
               <h5>Edit Service</h5>
-              <EditUserForm
+              <EditServiceForm
                 editing={editing}
                 setEditing={setEditing}
-                currentUser={currentUser}
-                updateUser={updateUser}
+                currentService={currentService}
+                updateService={updateService}
               />
             </Fragment>
           ) : (
             <Fragment>
               <h5>Add Service</h5>
-              <AddUserForm addUser={addUser} />
+              <AddServiceForm addService={addService} />
             </Fragment>
           )}
         </div>
         <div className='flex-large'>
           <h5>View Services</h5>
-          <UserTable users={users} editRow={editRow} deleteUser={deleteUser} />
+          <ServiceTable services={services} editRow={editRow} deleteService={deleteService} />
         </div>
       </div>
     </div>

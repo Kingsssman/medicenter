@@ -1,18 +1,18 @@
 import React, { useState } from 'react';
 import { Button, Form, FormGroup, FormControl } from 'react-bootstrap';
 
-const AddServiceForm = (props: any) => {
-  const initialFormState = { title: '', desc: '', img: '' };
-  const [service, setService] = useState(initialFormState);
+const AddDoctorForm = (props: any) => {
+  const initialFormState = { name: '', spec: '', desc: '', img: '' };
+  const [doctor, setDoctor] = useState(initialFormState);
 
   const handleInputChange = (event: any) => {
     const { name, value } = event.target;
 
-    setService({ ...service, [name]: value });
+    setDoctor({ ...doctor, [name]: value });
   };
 
   const handleFileInputChange = (e: any) => {
-    setService({ ...service, [e.target.name]: e.target.files[0].name });
+    setDoctor({ ...doctor, [e.target.name]: e.target.files[0].name });
   };
 
   return (
@@ -20,20 +20,32 @@ const AddServiceForm = (props: any) => {
       onSubmit={(event: any) => {
         event.preventDefault();
 
-        if (!service.title || !service.desc || !service.img) return;
+        if (!doctor.name || !doctor.spec || !doctor.desc || !doctor.img)
+          return;
 
-        props.addService(service);
-        (document.getElementById('inputGroupFile01') as any).value = '';
-        setService(initialFormState);
+        props.addDoctor(doctor);
+        (document.getElementById('inputGroupFile03') as any).value = '';
+        setDoctor(initialFormState);
       }}
     >
       <Form.Group controlId='formTitle'>
-        <Form.Label>Title</Form.Label>
+        <Form.Label>Name</Form.Label>
         <Form.Control
           type='text'
-          placeholder='Enter title'
-          name='title'
-          value={service.title}
+          placeholder='Enter name'
+          name='name'
+          value={doctor.name}
+          onChange={handleInputChange}
+        />
+      </Form.Group>
+
+      <Form.Group controlId='formSpec'>
+        <Form.Label>Specialty</Form.Label>
+        <Form.Control
+          type='text'
+          placeholder='Enter Specialty'
+          name='spec'
+          value={doctor.spec}
           onChange={handleInputChange}
         />
       </Form.Group>
@@ -44,7 +56,7 @@ const AddServiceForm = (props: any) => {
           type='text'
           placeholder='Enter Description'
           name='desc'
-          value={service.desc}
+          value={doctor.desc}
           onChange={handleInputChange}
         />
       </Form.Group>
@@ -54,7 +66,7 @@ const AddServiceForm = (props: any) => {
         <FormControl
           type='file'
           name='img'
-          id='inputGroupFile01'
+          id='inputGroupFile03'
           onChange={handleFileInputChange}
         />
       </FormGroup>
@@ -66,4 +78,4 @@ const AddServiceForm = (props: any) => {
   );
 };
 
-export default AddServiceForm;
+export default AddDoctorForm;
