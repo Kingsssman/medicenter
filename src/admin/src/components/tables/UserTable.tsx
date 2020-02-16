@@ -1,15 +1,16 @@
 import React from 'react';
 import { Table } from 'react-bootstrap';
+import './UserTable.scss'
 
 const UserTable = (props: any) => {
   return (
-    <Table striped bordered hover>
+    <Table striped bordered hover responsive>
       <thead>
         <tr>
-          <th>Image</th>
-          <th>Title</th>
-          <th>Description</th>
-          <th>Actions</th>
+          <th style={{ width: '25%' }}>Image</th>
+          <th style={{ width: '30%' }}>Title</th>
+          <th style={{ width: '30%' }}>Description</th>
+          <th style={{ width: '15%' }}>Actions</th>
         </tr>
       </thead>
       <tbody>
@@ -18,8 +19,7 @@ const UserTable = (props: any) => {
             <tr key={user._id}>
               <td>
                 <img
-                    src={`data:${user.img.mimetype};base64,${
-                      user.img.buffer}`}
+                  src={`data:${user.img.mimetype};base64,${user.img.buffer}`} width={'100%'}
                 />
               </td>
               <td>{user.title}</td>

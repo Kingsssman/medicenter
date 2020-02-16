@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Form, Button, Image } from 'react-bootstrap';
+import { Form, Button, Image, FormGroup, FormControl } from 'react-bootstrap';
 
 const EditUserForm = (props: any) => {
   const [user, setUser] = useState(props.currentUser);
@@ -17,7 +17,7 @@ const EditUserForm = (props: any) => {
 
     setUser({ ...user, [e.target.name]: e.target.files[0].name });
   };
-
+  
   return (
     <Form
       onSubmit={(event: any) => {
@@ -50,28 +50,25 @@ const EditUserForm = (props: any) => {
           onChange={handleInputChange}
         />
       </Form.Group>
-      {/* <Image src={`data:${user.img.mimetype};base64,${user.img.buffer}`} /> */}
 
-      <div className='input-group mb-3'>
-        <div className='custom-file'>
-          <input
-            type='file'
-            className='custom-file-input'
-            id='inputGroupFile02'
-            aria-describedby='inputGroupFileAddon02'
-            name='img'
-            onChange={handleFileInputChange}
-          />
-          <label className='custom-file-label' htmlFor='inputGroupFile02'>
-            Choose image
-          </label>
-        </div>
-      </div>
+      <FormGroup>
+        <Form.Label>Image</Form.Label>
+        <FormControl
+          type='file'
+          name='img'
+          id='inputGroupFile02'
+          onChange={handleFileInputChange}
+        />
+      </FormGroup>
 
       <Button variant='primary' type='submit' name='action'>
         Save
       </Button>
-      <Button variant='primary' type='submit' name='cancel'>
+      <Button
+        variant='primary'
+        name='cancel'
+        onClick={() => props.setEditing(false)}
+      >
         Cancel
       </Button>
     </Form>

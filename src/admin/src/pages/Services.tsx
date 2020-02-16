@@ -52,8 +52,6 @@ const Services = () => {
     formData.append('desc', updatedUser.desc);
 
     axios.put('/api/services/' + id, formData).then(res => {
-      console.log(res.data.service);
-      console.log(users);
       setUsers(users.map(user => (user['_id'] === id ? res.data.service : user)));
     });
   };

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Button, Form } from 'react-bootstrap';
+import { Button, Form, FormGroup, FormControl } from 'react-bootstrap';
 
 const AddUserForm = (props: any) => {
   const initialFormState = { title: '', desc: '', img: '' };
@@ -11,21 +11,10 @@ const AddUserForm = (props: any) => {
     setUser({ ...user, [name]: value });
   };
 
-
   const handleFileInputChange = (e: any) => {
-
     setUser({ ...user, [e.target.name]: e.target.files[0].name });
   };
 
-  const { img } = user
-  let file = null;
-
-  file = img ? (
-    <span>File Selected - {img}</span>
-  ) : (
-    <span>Choose a file...</span>
-    );
-  
   return (
     <Form
       onSubmit={(event: any) => {
@@ -60,21 +49,15 @@ const AddUserForm = (props: any) => {
         />
       </Form.Group>
 
-      <div className='input-group mb-3'>
-        <div className='custom-file'>
-          <input
-            type='file'
-            className='custom-file-input'
-            id='inputGroupFile01'
-            aria-describedby='inputGroupFileAddon01'
-            name='img'
-            onChange={handleFileInputChange}
-          />
-          <label className='custom-file-label' htmlFor='inputGroupFile01'>
-            {file}
-          </label>
-        </div>
-      </div>
+      <FormGroup>
+        <Form.Label>Image</Form.Label>
+        <FormControl
+          type='file'
+          name='img'
+          id='inputGroupFile01'
+          onChange={handleFileInputChange}
+        />
+      </FormGroup>
 
       <Button variant='primary' type='submit'>
         Add
